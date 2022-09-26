@@ -14,8 +14,8 @@ if [ $# -eq 0 ]
 else
     echo "## RECON.SH STARTING ##"
     assetfinder -subs-only $DOMAIN | anew domains_asset
-    amass enum $DOMAIN -passive -config ~/.config/amass/config.ini | anew domains_amass_passive
-    amass enum $DOMAIN -active -brute -w ~/Lists/SecLists/Discovery/DNS/deepmagic.com-prefixes-top50000.txt -config ~/.config/amass/config.ini | anew domains_amass_active
+    amass enum -d $DOMAIN -passive -config ~/.config/amass/config.ini | anew domains_amass_passive
+    amass enum -d $DOMAIN -active -brute -w ~/Lists/SecLists/Discovery/DNS/deepmagic.com-prefixes-top50000.txt -config ~/.config/amass/config.ini | anew domains_amass_active
     subfinder -d $DOMAIN | anew domains_sub
     findomain -t $DOMAIN | anew domains_find
     echo "$DOMAIN" | haktrails subdomains | anew domains_hak
