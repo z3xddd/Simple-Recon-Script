@@ -1,3 +1,5 @@
-# Simple-Recon-Script
+# Kill-Chain-Recon-Script
 
-Shell script for simple recon automated.
+Full kill chain bash recon script.
+
+Usage: ./recon.sh list_domains_to_recon
